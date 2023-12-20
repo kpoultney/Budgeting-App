@@ -26,6 +26,12 @@ export async function budgetLoader({ params }) {
         value: params.id,
     });
 
+    const income = await getAllMatchingItems({
+        category: "income",
+        key: "id",
+        value: params.id,
+    })[0];
+
     if (!budget) {
         throw new Error("The budget you’re trying to find doesn’t exist");
     }
