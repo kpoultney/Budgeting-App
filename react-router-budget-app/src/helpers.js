@@ -44,21 +44,6 @@ export const createBudget = ({
     JSON.stringify([...existingBudgets, newItem]))
 }
 
-// create income
-export const createIncome = ({
-  name, amount
-}) => {
-  const newItem = {
-    id: crypto.randomUUID(),
-    name: name,
-    createdAt: Date.now(),
-    amount: +amount,
-    color: generateRandomColor()
-  }
-  const existingBalance = fetchData("income") ?? [];
-  return localStorage.setItem("incomes", JSON.stringify([...existingBalance, newItem]))
-}
-
 // create expense
 export const createExpense = ({
   name, amount, budgetId
